@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{blogs.title}}
+{% endblock title %}
+{% block blogActive %}active
+{% endblock blogActive %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <h1 class="mt-4">{{blogs.title}}</h1>
+
+      <!-- Author -->
+      <p class="lead">
+        by
+        <a href="/about">{{blogs.author}}</a>
+      </p>
+
+      <hr>
+
+      {% comment %}
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+      <hr> {% endcomment %}
+
+      <!-- Post Content -->
+      {{blogs.content | safe}}
+
+
+      <hr>
+
+
+      <h3>People Thoughts</h3>
+      <!--Comment-->
+      <div class="card">
+        <div class="card-body mb-3">
+          <div class="media">
+            <img src="https://picsum.photos/64" class="mr-3" alt="...">
+            <div class="media-body">
+              <h5 class="mt-0">Author Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+              odio
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Comment Form-->
+
+
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4 my-20">
+
+      <!-- Seach Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Search</h5>
+        <div class="card-body">
+          <div class="row">
+            {% comment %} <div class="col-lg-6"> {% endcomment %}
+              <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search..."
+                  aria-label="Search" name="query" />
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+            You can put anything you want inside of these side widgets. They are easy to use, and feature the new
+            Bootstrap 4 card containers!
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+
+  </div>
+
+
+
+
+  {% endblock body %}

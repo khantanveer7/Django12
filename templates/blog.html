@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Blog
+{% endblock title %}
+{% block blogActive %}active
+{% endblock blogActive %}
+
+
+
+{% block body %}
+
+<div class="container">
+  <h2 style="color:#667eea" class="text-center my-4">Latest Blog Post</h2>
+</div>
+{% for blog in blogs %}
+
+<div class="container my-5">
+  <div class="card mb-3" ">
+  <div class=" row no-gutters">
+    <div class="col-md-4">
+    <a style="color: #667eea;" href="{{blog.slug}}">
+      <img src="{{blog.thumbnail}}" class="card-img rounded" alt="{{blog.ImgAlt}}">
+      <a/>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a style="color: #667eea;" href="{{blog.slug}}">
+          <h5 class="card-title"> {{blog.title}}</h5>
+          <a />
+          <p class="card-text">{{blog.meta}}</p>
+          <div class="column">
+            <a href="{{blog.slug}}">
+              <button style="background-color:#667eea;" type="button" class="btn float-right text-light"> Read More..
+              </button>
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endfor %}
+
+<div class="container">
+
+  {% if prev %}
+  <a class="text-light" href="/blog/?page={{prev}}"><button type="button" class="btn btn-dark ">&laquo;
+      Previous</button></a>
+  {% else %}
+  <a class="text-light" href="#"><button type="button" class="btn btn-dark ">&laquo; Previous</button></a>
+  {% endif %}
+
+
+  {% if nxt %}
+  <a class="text-light" href="/blog/?page={{nxt}}"><button type="button" class="btn btn-dark ">&nbsp;&nbsp; Next &raquo;
+      &nbsp;&nbsp;</button></a>
+  {% else %}
+  <a class="text-light" href="#"><button type="button" class="btn btn-dark ">&nbsp;&nbsp; Next &raquo;
+      &nbsp;&nbsp;</button></a>
+  {% endif %}
+
+</div>
+
+{% endblock body %}

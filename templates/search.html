@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search
+{% endblock title %}
+{% block homeActive %}active
+{% endblock homeActive %}
+
+
+
+{% block body %}
+
+<div class="container">
+
+  <h2 style="color:#667eea" class="text-center my-4">Search Result</h2>
+  <hr>
+  {% if allposts|length < 1  %}
+  <h4> No Result Found </h4>
+  <p><strong> Suggestions: </strong></p>
+  <ul>
+    <li>Make sure that all words are spelled correctly.</li>
+    <li>Try different keywords.</li>
+    <li>Try more general keywords.</li>
+  </ul>
+  {% else %}
+
+  {% for search in allposts %}
+
+  <div class="container my-5">
+    <div class="card mb-3" ">
+  <div class=" row no-gutters">
+      <div class="col-md-4">
+        <a style="color: #667eea;" href="blog/{{search.slug}}">
+          <img src="{{search.thumbnail}}" class="card-img rounded" alt="{{blog.ImgAlt}}">
+          <a />
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <a style="color: #667eea;" href="blog/{{search.slug}}">
+            <h5 class="card-title"> {{search.title}}</h5>
+            <a />
+            <p class="card-text">{{search.meta}}</p>
+            <div class="column">
+              <a href="blog/{{search.slug}}">
+                <button style="background-color:#667eea;" type="button" class="btn float-right text-light"> Read More..
+                </button>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock body %}

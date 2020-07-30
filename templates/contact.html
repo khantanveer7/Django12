@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact
+{% endblock title %}
+{% block contactActive %}active
+{% endblock contactActive %}
+
+{% block body %}
+
+<div class="container my-5">
+  <img src="/static/img/contact.jpeg" class="d-block w-100" alt="contact Us">
+</div>
+
+<div class="col-lg-6 offset-lg-2">
+  <h2 class="text-center my-4">Contact Us</h2>
+  <form action="/contact" method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault01">Name</label>
+        <input type="text" class="form-control" placeholder="Your Name" id="name" name="name" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" placeholder="Your Email" id="email" name="email"
+        aria-describedby="emailHelp" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="desc">Your Message</label>
+      <textarea class="form-control" placeholder="Your Message" id="desc" name="desc" rows="3" required></textarea>
+    </div>
+
+    <button style="background-color:#667eea;" class="btn btn-primary text-light;" type="submit">Submit form</button>
+  </form>
+</div>
+<div>
+
+</div>
+
+{% endblock body %}
