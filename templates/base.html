@@ -14,9 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <!--Favicons-->
   <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon.ico/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon.ico/apple-icon-60x60.png">
@@ -34,7 +32,15 @@
   <link rel="manifest" href="/static/favicon.ico/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> 
+
+  <!--footer-->
+  <style>
+    .main__body {
+      min-height: 90vh;
+    }
+  </style>
+
 
   <title>{% block title %}{% endblock title %} > Encode Programming</title>
 </head>
@@ -62,6 +68,9 @@
         </li>
         <li class="nav-item {% block contactActive %}{% endblock contactActive %}">
           <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="">
+          <a class="nav-link" href="/404">404</a>
         </li>
 
         <!-- <li class="nav-item">
@@ -179,27 +188,23 @@
   </div> {% endcomment %}
 
 
+  <div class="main__body">
+    {% block body %}
 
-  {% block body %}
+    {% endblock body %}
+  </div>
 
-  {% endblock body %}'
-
-
-
+  <br>
 </body>
 <!-- Footer -->
 <footer class="page-footer font-small text-light bg-dark pt-4">
 
   <!-- Footer Elements -->
   <div class="container">
-
     <!--Grid row-->
     <div class="row">
-
       <!--Grid column-->
       <div class="col-md-6 mb-4">
-
-
         <a href="/">
           <img src="{% static 'img/white.png' %}" alt="Encode Programming">
         </a>
@@ -208,11 +213,14 @@
 
       <!--Grid column-->
       <div class="col-md-6 mb-4">
-        <form class="input-group">
-          <input type="text" class="form-control form-control-sm" placeholder="Your email" aria-label="Your email"
-            aria-describedby="basic-addon2">
+        <form class="input-group" action='/sub' method='post'>
+          {% csrf_token %}
+          <input type="name" name="name" class="form-control form-control-sm mx-2" placeholder="Name" aria-label="Name"
+            aria-describedby="basic-addon2  ">
+          <input type="email" name="email" class="form-control form-control-sm" placeholder="Your email"
+            aria-label="Your email" aria-describedby="basic-addon2  ">
           <div class="input-group-append">
-            <button class="btn btn-sm btn-primary my-0 mx-2" type="button">Sign up</button>
+            <button class="btn btn-sm btn-primary my-0 mx-2" type="submit">Subscribe</button>
           </div>
         </form>
       </div>
@@ -226,25 +234,17 @@
 
   <!-- Copyright -->
   <div class=" text-center py-3">© 2020 Copyright:
-    <a class="text-light" href="#"> Encode Programming</a>
+    <a style="color: #667eea;" href="#"> Encode Programming</a>
   </div>
   <!-- Copyright -->
 
 </footer>
 <!-- Footer -->
 
-</html>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </html>

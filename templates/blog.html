@@ -11,7 +11,7 @@ Blog
 {% block body %}
 
 <div class="container">
-  <h2 style="color:#667eea" class="text-center my-4">Latest Blog Post</h2>
+  <h2 style="color:#667eea" class="text-center my-4">Blog Post</h2>
 </div>
 {% for blog in blogs %}
 
@@ -19,9 +19,9 @@ Blog
   <div class="card mb-3" ">
   <div class=" row no-gutters">
     <div class="col-md-4">
-    <a style="color: #667eea;" href="{{blog.slug}}">
-      <img src="{{blog.thumbnail}}" class="card-img rounded" alt="{{blog.ImgAlt}}">
-      <a/>
+      <a style="color: #667eea;" href="{{blog.slug}}">
+        <img src="{{blog.thumbnail}}" class="card-img rounded" alt="{{blog.ImgAlt}}">
+        <a />
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -40,6 +40,7 @@ Blog
   </div>
 </div>
 </div>
+
 
 
 {% endfor %}

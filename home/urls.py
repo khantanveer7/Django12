@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from home import views
+from django.conf.urls import handler404
 
 # Django Customization
 admin.site.site_header = "Encode Programming"
@@ -16,6 +17,8 @@ urlpatterns = [
     path("signup", views.signup, name='SignUp'),
     path("login", views.login, name='Login'),
     path("logout", views.logout, name='Logout'),
+    path("sub", views.sub, name='sub'),
+    path("404", views.error404, name='404'),
 
 
 ]

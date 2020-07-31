@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home
 {% endblock title %}
 {% block homeActive %}active
 {% endblock homeActive %}
 
+
 {% block body %}
 <section class="text-gray-700 body-font">
   <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
     <div
       class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">ENCODE PROGRAMMING</h1>
+      <h1 style="color: #667eea;" class="title-font sm:text-4xl text-3xl mb-4 mt-3 font-medium text-gray-900">ENCODE PROGRAMMING</h1>
       <p class="mb-8 leading-relaxed">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis, minus fugit
         quidem quo quae quos dolor libero aperiam ipsam accusamus consequuntur ea vitae tempore nam non obcaecati illo
         tempora exercitationem?</p>
@@ -21,7 +23,7 @@
       </div>
     </div>
     <div style="border: 1px outset black;" class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded" alt="hero" src="/static/img/encode.jpeg">
+      <img class="object-cover object-center rounded" alt="homePage" src="{% static 'img/encode.jpeg' %}">
     </div>
   </div>
 </section>

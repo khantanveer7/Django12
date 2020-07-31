@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from home.models import Contact
 from home.models import Blog
+from home.models import Sub
+from encode import urls
 from django.contrib import messages
 import math
 
@@ -22,6 +24,10 @@ def about(request):
     return render(request, 'about.html')
 
 
+def error404(request):
+    return render(request, 'error404.html')
+
+
 def contact(request):
 
     if request.method == "POST":
@@ -31,6 +37,7 @@ def contact(request):
        # print(name , email , desc)
         contact = Contact(name=name, email=email, desc=desc)
         contact.save()
+        messages.success(request, "Message Sent")
     return render(request, 'contact.html')
 
 
@@ -38,13 +45,14 @@ def search(request):
     # allposts = Blog.objects.all()
 
     query = request.GET['query']
-    if len(query) > 70 and len(query) < 0:
-        allposts = []
-    else:
+    if len(query) < 80 and len(query) > 0:
         # q1 = Blog.objects.filter(title__icontains=query)
         # q2 = Blog.objects.filter(content__icontains=query)
         # allposts = q1.union(q2)
         allposts = Blog.objects.filter(title__icontains=query)
+        # allposts = Blog.objects.filter(title__icontains=query)
+    else:
+        allposts = []
 
     params = {'allposts': allposts}
     return render(request, 'search.html',  params)
@@ -105,3 +113,15 @@ def login(request):
 # Logout
 def logout(request):
     pass
+
+
+def sub(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+
+       # print(name , email , desc)
+        Subs = Sub(name=name, email=email)
+        Subs.save()
+        messages.success(request, "Subscribe Successfully")
+        return redirect('/')
