@@ -94,6 +94,8 @@ def signup(request):
         return HttpResponse('Error 404')
 
 
+
+
 # Login
 def login(request):
     if request.method == 'POST':

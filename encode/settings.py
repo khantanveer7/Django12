@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p68jtc7j01du*u2_7vr8p1gxl%k#@qz3dlh+5bs7ae%x5ehy)e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'home',
     'blog',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,9 +129,12 @@ STATIC_URL = '/static/'
 # Added manually To make absolute path (privacy)
 STATICFILES_DIRS = [
     "static/",
-
 ]
+
+MEDIA_URL = '/img/'
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+CRISPY_TEMPLATE_PACK = 'uni_form'

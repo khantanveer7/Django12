@@ -14,9 +14,9 @@ urlpatterns = [
     path("about", views.about, name='About'),
     path("contact", views.contact, name='Contact'),
     path("search", views.search, name='Search'),
-    path("signup", views.signup, name='SignUp'),
-    path("login", views.login, name='Login'),
-    path("logout", views.logout, name='Logout'),
+    path("login", views.login, name='login'),
+    path("signup", views.signup, name='signup'),
+
     path("sub", views.sub, name='sub'),
     path("404", views.error404, name='404'),
 

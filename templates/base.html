@@ -48,7 +48,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a href="/">
-      <img src="{% static 'img/white.png' %}" alt="Encode Programming">
+      <img src="{% static '/img/white.png' %}" alt="Encode Programming">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,10 +84,11 @@
           Search
         </button>
       </form>
-
-      {% comment %} <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#signUp">
+{% comment %}
+       <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#signUp">
         Sign Up
       </button>
+      
       <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#signIn">
         Sign In
       </button> {% endcomment %}
@@ -108,7 +109,7 @@
 
   <!-- Button trigger modal -->
 
-  {% comment %}
+ {% comment %}
   <!-- Sign Up Modal -->
   <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -121,10 +122,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action='/signup' method='post'>
+          <form action='/signup' method='POST'>
             {% csrf_token %}
             <div class="form-group">
-              <label for="name">First Name</label>
+               <label for="name">First Name</label>
               <input type="name" class="form-control" name="f_name" id="f_name" aria-describedby="emailHelp" required />
             </div>
             <div class="form-group">
@@ -147,7 +148,11 @@
             <div class="form-group">
               <label for="pass2"> Confirm Password</label>
               <input type="password" class="form-control" name="pass2" id="pass2" required />
-            </div>
+            </div> 
+           
+
+         
+            
             <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>
         </div>
@@ -155,8 +160,10 @@
       </div>
     </div>
   </div>
+  {% endcomment %}
 
-  <!-- Sign Up Modal -->
+  {% comment %}
+  <!-- Sign In Modal -->
   <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -185,8 +192,8 @@
         <div class="modal-footer"></div>
       </div>
     </div>
-  </div> {% endcomment %}
-
+  </div> 
+  {% endcomment %}
 
   <div class="main__body">
     {% block body %}
